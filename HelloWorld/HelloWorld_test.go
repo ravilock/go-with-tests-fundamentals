@@ -14,15 +14,22 @@ func assertMessage(t testing.TB, got, want string) {
 
 func TestHello(t *testing.T) {
 	t.Run("Saying hello to someone", func(t *testing.T) {
-		got := Hello("Lula")
+		got := Hello("Lula", "")
 		want := "Hello, Lula"
 
 		assertMessage(t, got, want)
 	})
 
 	t.Run("Empty string defaults to 'Wold'", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
+
+		assertMessage(t, got, want)
+	})
+
+	t.Run("In Spanish", func(t *testing.T) {
+		got := Hello("Charmander", "Spanish")
+		want := "Hola, Charmander"
 
 		assertMessage(t, got, want)
 	})
