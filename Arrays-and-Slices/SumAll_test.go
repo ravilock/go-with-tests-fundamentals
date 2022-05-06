@@ -15,3 +15,9 @@ func TestSumAll(t *testing.T) {
 		}
 	})
 }
+
+func BenchmarkSumAll(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		SumAll([]int{1, 2, 3, 4}, []int{6, 9, 0, 4, 3, 1})
+	}
+}
