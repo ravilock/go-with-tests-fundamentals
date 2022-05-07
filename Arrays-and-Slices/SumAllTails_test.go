@@ -14,6 +14,16 @@ func TestSumAllTails(t *testing.T) {
 			t.Errorf("Expected '%d' got '%d'", want, got)
 		}
 	})
+
+	t.Run("Safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{0, 9})
+		want := []int{0, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("Expected '%d' got '%d'", want, got)
+		}
+	})
+
 }
 
 func BenchmarkSumAllTails(t *testing.B) {
