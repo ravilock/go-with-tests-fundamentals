@@ -41,3 +41,7 @@ func (dictionary Dictionary) Update(key, value string) error {
 	dictionary[key] = value
 	return nil
 }
+
+func (dictionary Dictionary) Delete(key string) {
+	delete(dictionary, key)
+}
