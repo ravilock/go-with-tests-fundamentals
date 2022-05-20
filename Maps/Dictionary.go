@@ -7,6 +7,7 @@ import (
 var (
 	ErrorWordNotFound       = errors.New("Could not find the word you were looking for")
 	ErrorWordAlreadyDefined = errors.New("Word already defined")
+	ErrorWordNotDefined     = errors.New("Searched word is not defined")
 )
 
 type Dictionary map[string]string
@@ -34,7 +35,7 @@ func (dictionary Dictionary) Add(key, value string) error {
 func (dictionary Dictionary) Update(key, value string) error {
 	_, ok := dictionary[key]
 	if !ok {
-		return ErrorWordNotFound
+		return ErrorWordNotDefined
 	}
 
 	dictionary[key] = value
