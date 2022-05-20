@@ -30,3 +30,13 @@ func (dictionary Dictionary) Add(key, value string) error {
 	dictionary[key] = value
 	return nil
 }
+
+func (dictionary Dictionary) Update(key, value string) error {
+	_, ok := dictionary[key]
+	if !ok {
+		return ErrorWordNotFound
+	}
+
+	dictionary[key] = value
+	return nil
+}
